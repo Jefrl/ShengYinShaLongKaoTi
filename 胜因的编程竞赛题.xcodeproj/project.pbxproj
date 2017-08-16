@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A52B92DB1F43D33300B36621 /* TestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B92DA1F43D33300B36621 /* TestTwoViewController.m */; };
+		A52B92DE1F43FEB100B36621 /* NSArray+HXL.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */; };
 		A5DB95BC1F430D4A002FC206 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95BB1F430D4A002FC206 /* main.m */; };
 		A5DB95BF1F430D4A002FC206 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95BE1F430D4A002FC206 /* AppDelegate.m */; };
 		A5DB95C21F430D4A002FC206 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95C11F430D4A002FC206 /* ViewController.m */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A52B92D91F43D33300B36621 /* TestTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTwoViewController.h; sourceTree = "<group>"; };
+		A52B92DA1F43D33300B36621 /* TestTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTwoViewController.m; sourceTree = "<group>"; };
+		A52B92DC1F43FEB100B36621 /* NSArray+HXL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+HXL.h"; sourceTree = "<group>"; };
+		A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HXL.m"; sourceTree = "<group>"; };
 		A5DB95B71F430D4A002FC206 /* 胜因的编程竞赛题.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "胜因的编程竞赛题.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DB95BB1F430D4A002FC206 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5DB95BD1F430D4A002FC206 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +71,10 @@
 				A5DB95BE1F430D4A002FC206 /* AppDelegate.m */,
 				A5DB95C01F430D4A002FC206 /* ViewController.h */,
 				A5DB95C11F430D4A002FC206 /* ViewController.m */,
+				A52B92D91F43D33300B36621 /* TestTwoViewController.h */,
+				A52B92DA1F43D33300B36621 /* TestTwoViewController.m */,
+				A52B92DC1F43FEB100B36621 /* NSArray+HXL.h */,
+				A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */,
 				A5DB95BA1F430D4A002FC206 /* Supporting Files */,
 			);
 			path = "胜因的编程竞赛题";
@@ -156,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DB95C21F430D4A002FC206 /* ViewController.m in Sources */,
+				A52B92DB1F43D33300B36621 /* TestTwoViewController.m in Sources */,
 				A5DB95BF1F430D4A002FC206 /* AppDelegate.m in Sources */,
+				A52B92DE1F43FEB100B36621 /* NSArray+HXL.m in Sources */,
 				A5DB95BC1F430D4A002FC206 /* main.m in Sources */,
 				A5DB95D51F432396002FC206 /* Foundation+Log.m in Sources */,
 			);

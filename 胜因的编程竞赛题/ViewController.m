@@ -70,7 +70,7 @@ static NSString * const subData = @"sub_data";
     NSDictionary *dictFive = [NSDictionary dictionary];
     NSDictionary *dictMix = [NSDictionary dictionary];
     
-    for (NSArray *tempArray in originArray) { // 传入的大数组逆序遍历出一个个单一数组如: @[@"标题5", @x1, @x2, @x3]
+    for (NSArray *tempArray in originArray) { // 传入的大数组遍历出一个个单一数组如: @[@"标题5", @x1, @x2, @x3]
         if ([tempArray containsObject:titleArray[indexOne]]) { // 如有包含如: @"标题2"
             // 将标题2保存为一个字典
             dictTwo = [self dictionaryWithTempArray:@[tempArray]];
