@@ -1,20 +1,14 @@
 //
-//  ViewController.m
-//  胜因的编程竞赛题
+//  TestOne.m
+//  胜因的编程竞赛题 -- 此为题一, 题目在最下面; 
 //
 //  Created by Jefrl on 2017/8/15.
 //  Copyright © 2017年 Jefrl. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TestOne.h"
 
-@interface ViewController ()
-
-
-
-@end
-
-@implementation ViewController
+@implementation TestOne
 
 #pragma mark ===================== 规定的标识 =====================
 static NSString * const mainData = @"main_data";
@@ -132,21 +126,19 @@ static NSString * const subData = @"sub_data";
     
     // 开始处理原始数据
     NSArray * getTagetArray = [self handleOriginData:originArray];
+    NSLog(@"%@",getTagetArray);
     
     BOOL flag = [getTagetArray writeToFile:@"/Users/Jefrl/Desktop/getTagetArray.plist" atomically:YES];
     if (flag) {
         NSLog(@"写入成功");
     }
     
-    NSArray *array = [NSArray arrayWithContentsOfFile:@"/Users/Jefrl/Desktop/getTagetArray.plist"];
-    NSLog(@"%@",array);
-    
 }
 
 
 @end
 
-#pragma mark ===================== 面试编程考核题 题目 =====================
+#pragma mark ===================== 编程考核题一 题目 =====================
 // 已经将原题目转为对应的 OC 语言编程试题
 /*
 // 初始数据结构

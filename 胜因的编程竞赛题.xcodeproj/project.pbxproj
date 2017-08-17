@@ -12,7 +12,7 @@
 		A52B92FD1F44896D00B36621 /* NSDictionary+HXL.m in Sources */ = {isa = PBXBuildFile; fileRef = A52B92FC1F44896D00B36621 /* NSDictionary+HXL.m */; };
 		A5DB95BC1F430D4A002FC206 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95BB1F430D4A002FC206 /* main.m */; };
 		A5DB95BF1F430D4A002FC206 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95BE1F430D4A002FC206 /* AppDelegate.m */; };
-		A5DB95C21F430D4A002FC206 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95C11F430D4A002FC206 /* ViewController.m */; };
+		A5DB95C21F430D4A002FC206 /* TestOne.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DB95C11F430D4A002FC206 /* TestOne.m */; };
 		A5DB95C51F430D4A002FC206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB95C31F430D4A002FC206 /* Main.storyboard */; };
 		A5DB95C71F430D4A002FC206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DB95C61F430D4A002FC206 /* Assets.xcassets */; };
 		A5DB95CA1F430D4A002FC206 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB95C81F430D4A002FC206 /* LaunchScreen.storyboard */; };
@@ -30,8 +30,8 @@
 		A5DB95BB1F430D4A002FC206 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5DB95BD1F430D4A002FC206 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5DB95BE1F430D4A002FC206 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A5DB95C01F430D4A002FC206 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5DB95C11F430D4A002FC206 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A5DB95C01F430D4A002FC206 /* TestOne.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestOne.h; sourceTree = "<group>"; };
+		A5DB95C11F430D4A002FC206 /* TestOne.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestOne.m; sourceTree = "<group>"; };
 		A5DB95C41F430D4A002FC206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5DB95C61F430D4A002FC206 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5DB95C91F430D4A002FC206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +51,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A539F4721F4551FD00106BED /* 门店级下钻测试 */ = {
+			isa = PBXGroup;
+			children = (
+				A52B92D91F43D33300B36621 /* TestTwoViewController.h */,
+				A52B92DA1F43D33300B36621 /* TestTwoViewController.m */,
+				A52B92DC1F43FEB100B36621 /* NSArray+HXL.h */,
+				A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */,
+				A52B92FB1F44896D00B36621 /* NSDictionary+HXL.h */,
+				A52B92FC1F44896D00B36621 /* NSDictionary+HXL.m */,
+			);
+			name = "门店级下钻测试";
+			sourceTree = "<group>";
+		};
+		A539F4731F45527F00106BED /* 初步测试题 */ = {
+			isa = PBXGroup;
+			children = (
+				A5DB95C01F430D4A002FC206 /* TestOne.h */,
+				A5DB95C11F430D4A002FC206 /* TestOne.m */,
+			);
+			name = "初步测试题";
+			sourceTree = "<group>";
+		};
 		A5DB95AE1F430D4A002FC206 = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +94,8 @@
 			children = (
 				A5DB95BD1F430D4A002FC206 /* AppDelegate.h */,
 				A5DB95BE1F430D4A002FC206 /* AppDelegate.m */,
-				A5DB95C01F430D4A002FC206 /* ViewController.h */,
-				A5DB95C11F430D4A002FC206 /* ViewController.m */,
-				A52B92D91F43D33300B36621 /* TestTwoViewController.h */,
-				A52B92DA1F43D33300B36621 /* TestTwoViewController.m */,
-				A52B92DC1F43FEB100B36621 /* NSArray+HXL.h */,
-				A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */,
-				A52B92FB1F44896D00B36621 /* NSDictionary+HXL.h */,
-				A52B92FC1F44896D00B36621 /* NSDictionary+HXL.m */,
+				A539F4731F45527F00106BED /* 初步测试题 */,
+				A539F4721F4551FD00106BED /* 门店级下钻测试 */,
 				A5DB95BA1F430D4A002FC206 /* Supporting Files */,
 			);
 			path = "胜因的编程竞赛题";
@@ -170,7 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DB95C21F430D4A002FC206 /* ViewController.m in Sources */,
+				A5DB95C21F430D4A002FC206 /* TestOne.m in Sources */,
 				A52B92DB1F43D33300B36621 /* TestTwoViewController.m in Sources */,
 				A5DB95BF1F430D4A002FC206 /* AppDelegate.m in Sources */,
 				A52B92DE1F43FEB100B36621 /* NSArray+HXL.m in Sources */,
