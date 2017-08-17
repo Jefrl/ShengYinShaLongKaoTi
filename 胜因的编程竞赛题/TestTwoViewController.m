@@ -18,7 +18,7 @@
 @implementation TestTwoViewController
 
 // 指定的行数
-static NSInteger const rowCount = 5;
+static NSInteger const rowCount = 3;
 
 /** 个人文件说明:
  
@@ -31,7 +31,16 @@ static NSInteger const rowCount = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+#pragma mark =========== 方便测试需求二多行情况, 假设获得的随机数据如下 =====================
+    NSArray *testTwoDArray = @[
+                               
+                               @[@"商行", @"农行"],
+                               @[@"华北", @"华东", @""],
+                               @[@"宝山街", @"宝菊街", @"顾村街"],
+                               @[@"龙华西路店", @"龙华北路店", @"总店"]
+                               
+                               ];
+#pragma mark ==========================================================================
     NSArray *dataTwoDArray = @[
                                
                              @[@"商行", @"农行"],
@@ -39,7 +48,7 @@ static NSInteger const rowCount = 5;
                              @[@"龙华西路店", @"龙华北路店", @"总店"]
                              
                              ];
-    // 00. 任意行数数, 随便指定为 5;
+    // 00. 任意行数数, 随便指定为 3;
     NSInteger count = rowCount;
     
     // 01. 调用需求一的接口, 获得目标数组
@@ -67,18 +76,16 @@ static NSInteger const rowCount = 5;
                        @[@"央行", @"华东", @"总店"],
                        
                        @[@"央行", @"总店"]
-                       
-                       
                        ];
 #pragma clang diagnostic pop
     
     // 02. 调用需求二的接口, 获得目标数组,
-      NSArray *arrayTwo =  [NSArray requireTwo:array];
+      NSArray *arrayTwo =  [NSArray requireTwo:arrayTest];
     NSLog(@"%@", arrayTwo);
     
     // 03. 并写入 plist 文件
-    BOOL flag = [arrayTwo writeToFile:@"/Users/Jefrl/Desktop/MenDianJiRequireTwo.plist" atomically:YES];
-    if (flag) NSLog(@"写入成功");
+    // BOOL flag = [arrayTwo writeToFile:@"/Users/Jefrl/Desktop/MenDianJiRequireTwo.plist" atomically:YES];
+    // if (flag) NSLog(@"写入成功");
     
 }
 

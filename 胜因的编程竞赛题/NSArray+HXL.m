@@ -20,7 +20,7 @@ static NSString * const subData = @"items";
 //                       需求一的功能接口区域
 //=================================================================
 /**
- 随机生成一个二维数组，行数 >= 3，列数3列, 且行数据项不可重复
+ 随机生成一个二维数组，行数 >= 3，列数可多列, 暂定3列, 且行数据项不可重复
  @param dataTDArray 传入的随机的一维数组
  @param rowCount 指定的行数
  @return 随机的二维数组
@@ -99,174 +99,63 @@ static NSString * const subData = @"items";
     // 01. 获取 再次分类后的四维数组
     NSArray *dataFourDArray = [self getDataFourDArrayWithThreeDArray:dataThreeDArray compareIndex:1];
     // 02. 获取 解析后的目标数组
-    NSArray *targetArray = [self getTargetArrayWithdataFourDArray:dataFourDArray];
+    NSArray *targetArray = [self arrayAnalyzedWithFourDArray:dataFourDArray];
     
     return targetArray;
 }
 
-/**
- 获取 解析数组
+#pragma mark ===================== 数组解析成字典功能区域 =====================
 
- @param dataFourDArray 四维数组
- @return 解析数组
+// =====================  四维数组解析子集的功能模块 =====================
+/**
+ 解析四维数组
+ 
+ @param fourDArray 传入四维数组
+ @return 解析好的数组 (内部类似四级字典)
  */
-+ (NSArray *)getTargetArrayWithdataFourDArray:(NSArray *)dataFourDArray
++ (NSArray *)arrayAnalyzedWithFourDArray:(NSArray *)fourDArray
 {
     NSMutableArray *containBankArray = [NSMutableArray array];
     
-    for (NSArray *threeDArray in dataFourDArray) { // 4->3
-        
+    for (NSArray *threeDArray in fourDArray) { // 4->3  4w 的循环 而已
         // 记录性字符串
-        NSString *bankTitle;
-        NSString *zoneTitle;
-        
+        NSString *bankTitle = threeDArray[0][0][0];
         // 包含了区域的数组
         NSMutableArray *containZoneArray = [NSMutableArray array];
         
-#pragma mark ===================== 解析开始中 ===============================================================
+        // ✨解析开始中: 从此处开始分为四种模型需要处理; 3单子集单子集, 3单子集多子集, 3多子集单子集, 3多子集多子集
         if (threeDArray.count == 1) { // 分支 3W-01 如果三维数组, 只有一个子集
-            
             for (NSArray *twoDArray in threeDArray) {
                 
-                if (twoDArray.count == 1) { // 分支2W-01 如果 二维数组内, 也只有一个子集
-                    // 初始的空数组
-                    NSArray *previousArray = [NSArray array];
-                    
-                    NSDictionary *onlyBankSameZoneDictM = [NSDictionary dictionary];
-                    for (NSArray *array in twoDArray) { // 2-> 1
-                        
-                        NSInteger index = array.count - 1;
-                        // 倒数第三个(这里也就是第一个) 元素的值;
-                        bankTitle = array[0];
-                        
-                        for (NSInteger i = index; i >= 1; i--) { // 保留银行名等合并
-                            NSString *mainString = array[i];
-                            
-                            // 不断以逆序数组问 mainData 的值, 以上一次记录的数组为 subData 的值, 实现一个有出口的递归
-                            NSDictionary *dict = @{mainData : mainString, subData : previousArray};
-                            NSArray *array = @[dict];
-                            // 记录新值
-                            previousArray = array;
-                            onlyBankSameZoneDictM = dict;
-                        }
-                    }
+                if (twoDArray.count == 1) { // 分支 2W-01 如果二维数组, 只有一个子集
                     // 保存字典
+                    NSDictionary *onlyBankSameZoneDictM = [self dictAnalyzedWithSingleSubTwoDArray:twoDArray];
                     [containZoneArray addObject:onlyBankSameZoneDictM];
                     
-#pragma mark ===================== 小 if 的结束 ===============================================================
-                    
-                } else { // 分支2W-02 如果二维数组内, 有多个子集(银行, 区域都相同, 只有店铺不相同的二维数组)
-                    // 初始的空数组
-                    NSArray *emptyArray = [NSArray array];
-                    
-                    NSDictionary *bankZoneSameDictM = [NSDictionary dictionary];
-                    NSMutableArray *containStoreArrayM = [NSMutableArray array];
-                    for (NSArray *array in twoDArray) { // 2 -> 1维
-                        
-                        NSInteger index = array.count - 1;
-                        NSString *mainString = array[index];
-                        NSDictionary *dict = @{mainData : mainString, subData : emptyArray};
-                        // 将循环的末尾字典, 全加入数组
-                        [containStoreArrayM addObject:dict];
-                        
-                        // 记录下倒数第二个, 倒数第三个(这里也就是第一个) 元素的值;
-                        if (array.count < 3) {
-                            zoneTitle = array[1];
-                            bankTitle = array[0];
-                        } else {
-                            zoneTitle = array[index - 1];
-                            bankTitle = array[index - 2];
-                        }
-                        
-                    }
-                    
-                    // 合并小字典成区域字典;
-                    NSString *mainString = zoneTitle;
-                    NSDictionary *dict = @{mainData : mainString, subData : containStoreArrayM};
-                    // 有两个区域相同的字典保存
-                    bankZoneSameDictM = dict;
-                    
-                    // 区域字典全都, 保存到数组;
+                } else { // 分支 2W-02 如果二维数组, 只有多个子集
+                    // 保存字典
+                    NSDictionary *bankZoneSameDictM = [self dictAnalyzedWithMoreSubTwoDArray:twoDArray];
                     [containZoneArray addObject:bankZoneSameDictM];
-                    
-                } // 上一层的 小 else 结束 而已
-                
-            } // 分支 3W-01 如果三维数组, 只有一个子集 的 for 循环而已
-#pragma mark ===================== 最大的 if 的结束 ===============================================================
+                }
+            }
+            
         } else { // 分支 3W-02 如果三维数组内, 有多个子集(二维数组)
             
             for (NSArray *twoDArray in threeDArray) { // 3->2
                 
-                // 分支01, 只有银行相同, 区域跟店铺不同的二维数组
-                if (twoDArray.count == 1) { //  又一个 分支2W-01 如果 二维数组内, 也只有一个子集
-                    // 初始的空数组
-                    NSArray *previousArray = [NSArray array];
-                    
-                    NSDictionary *onlyBankSameZoneDictM = [NSDictionary dictionary];
-                    for (NSArray *array in twoDArray) { // 2-> 1
-                        
-                        NSInteger index = array.count - 1;
-                        // 倒数第三个(这里也就是第一个) 元素的值;
-                        bankTitle = array[0];
-                        
-                        for (NSInteger i = index; i >= 1; i--) { // 保留银行名等合并
-                            NSString *mainString = array[i];
-                            
-                            // 不断以逆序数组问 mainData 的值, 以上一次记录的数组为 subData 的值, 实现一个有出口的递归
-                            NSDictionary *dict = @{mainData : mainString, subData : previousArray};
-                            NSArray *array = @[dict];
-                            // 记录新值
-                            previousArray = array;
-                            onlyBankSameZoneDictM = dict;
-                        }
-                    } // for 循环结束
-                    
+                if (twoDArray.count == 1) { // 分支 2W-01 如果二维数组, 只有一个子集
                     // 保存字典
+                    NSDictionary *onlyBankSameZoneDictM = [self dictAnalyzedWithSingleSubTwoDArray:twoDArray];
                     [containZoneArray addObject:onlyBankSameZoneDictM];
                     
-#pragma mark ===================== 小 if 的结束 ===============================================================
-                    
-                } else { // 分支2W-02 如果二维数组内, 有多个子集(银行, 区域都相同, 只有店铺不相同的二维数组)
-                    // 初始的空数组
-                    NSArray *emptyArray = [NSArray array];
-                    
-                    NSDictionary *bankZoneSameDictM = [NSDictionary dictionary];
-                    NSMutableArray *containStoreArrayM = [NSMutableArray array];
-                    for (NSArray *array in twoDArray) { // 2 -> 1维
-                        
-                        NSInteger index = array.count - 1;
-                        NSString *mainString = array[index];
-                        NSDictionary *dict = @{mainData : mainString, subData : emptyArray};
-                        // 将循环的末尾字典, 全加入数组
-                        [containStoreArrayM addObject:dict];
-                        
-                        // 记录下倒数第二个, 倒数第三个(这里也就是第一个) 元素的值;
-                        // 记录下倒数第二个, 倒数第三个(这里也就是第一个) 元素的值;
-                        if (array.count < 3) {
-                            zoneTitle = array[1];
-                            bankTitle = array[0];
-                        } else {
-                            zoneTitle = array[index - 1];
-                            bankTitle = array[index - 2];
-                        }
-                        
-                    }
-                    
-                    // 合并小字典成区域字典;
-                    NSString *mainString = zoneTitle;
-                    NSDictionary *dict = @{mainData : mainString, subData : containStoreArrayM};
-                    // 有两个区域相同的字典保存
-                    bankZoneSameDictM = dict;
-                    
-                    // 区域字典全都, 保存到数组;
+                } else { // 分支 2W-02 如果二维数组, 只有多个子集
+                    // 保存字典
+                    NSDictionary *bankZoneSameDictM = [self dictAnalyzedWithMoreSubTwoDArray:twoDArray];
                     [containZoneArray addObject:bankZoneSameDictM];
-                    
-                } // 分支 3W-02 中的 小 else 结束而已
-                
-            }  // 分支 3W-02 如果三维数组内, 有多个子集(二维数组) 的 for 循环而已
+                }
+            }
             
-#pragma mark ===================== 最大的 else 的结束 =====================
-        } // 3w - 02 的 else 而已
+        }
         
         // 将银行相同的字典合并为数组;
         NSString *mainString = bankTitle;
@@ -274,11 +163,96 @@ static NSString * const subData = @"items";
         
         [containBankArray addObject:containBankdict];
         
-    } // 4w 的循环 而已
+    }
     
     return containBankArray;
 }
 
+// ===================== 单子集二维数组解析成二级字典 =====================
+/**
+ 获得二级字典
+ 
+ @param twoDArray 单子集二维数组
+ @return 二级字典
+ */
++ (NSDictionary *)dictAnalyzedWithSingleSubTwoDArray:(NSArray *)twoDArray
+{
+    // 记录性字符串
+    NSString *bankTitle;
+    //    NSString *zoneTitle;
+    
+    // 分支2W-01 如果 二维数组内, 也只有一个子集
+    // 初始的空数组
+    NSArray *previousArray = [NSArray array];
+    
+    NSDictionary *onlyBankSameZoneDictM = [NSDictionary dictionary];
+    for (NSArray *array in twoDArray) { // 2-> 1
+        
+        NSInteger index = array.count - 1;
+        // 倒数第三个(这里也就是第一个) 元素的值;
+        bankTitle = array[0];
+        
+        for (NSInteger i = index; i >= 1; i--) { // 保留银行名等合并
+            NSString *mainString = array[i];
+            
+            // 不断以逆序数组问 mainData 的值, 以上一次记录的数组为 subData 的值, 实现一个有出口的递归
+            NSDictionary *dict = @{mainData : mainString, subData : previousArray};
+            NSArray *array = @[dict];
+            // 记录新值
+            previousArray = array;
+            onlyBankSameZoneDictM = dict;
+        }
+    }
+    return onlyBankSameZoneDictM;
+}
+
+//===================== 多子集二维数组解析成二级字典  =====================
+/**
+ 获得解析好的字典
+ 
+ @param twoDArray 多子集二维数组
+ @return 二级字典
+ */
++ (NSDictionary *)dictAnalyzedWithMoreSubTwoDArray:(NSArray *)twoDArray
+{
+    // 记录性字符串
+    NSString *bankTitle;
+    NSString *zoneTitle;
+    
+    // 分支2W-02 如果二维数组内, 有多个子集(银行, 区域都相同, 只有店铺不相同的二维数组)
+    // 初始的空数组
+    NSArray *emptyArray = [NSArray array];
+    
+    NSDictionary *bankZoneSameDictM = [NSDictionary dictionary];
+    NSMutableArray *containStoreArrayM = [NSMutableArray array];
+    for (NSArray *array in twoDArray) { // 2 -> 1维
+        
+        NSInteger index = array.count - 1;
+        NSString *mainString = array[index];
+        NSDictionary *dict = @{mainData : mainString, subData : emptyArray};
+        // 将循环的末尾字典, 全加入数组
+        [containStoreArrayM addObject:dict];
+        
+        // 记录下倒数第二个, 倒数第三个(这里也就是第一个) 元素的值;
+        if (array.count < 3) {
+            zoneTitle = array[1];
+            bankTitle = array[0];
+        } else {
+            zoneTitle = array[index - 1];
+            bankTitle = array[index - 2];
+        }
+        
+    }
+    
+    // 合并小字典成区域字典;
+    NSString *mainString = zoneTitle;
+    NSDictionary *dict = @{mainData : mainString, subData : containStoreArrayM};
+    // 有两个区域相同的字典保存
+    bankZoneSameDictM = dict;
+    return bankZoneSameDictM;
+}
+
+#pragma mark ===================== 数组转换功能区域 =====================
 /**
  三维转四维
  获得二级分类的四维数组 (此题为区域分类)
