@@ -43,12 +43,12 @@
 + (NSArray *)requireTwo:(NSArray *)originArray;
 
 /**
- 获取 解析数组
+ 解析四维数组
  
- @param dataFourDArray 四维数组
- @return 解析数组
+ @param fourDArray 传入四维数组
+ @return 解析好的数组 (内部类似四级字典)
  */
-+ (NSArray *)getTargetArrayWithdataFourDArray:(NSArray *)dataFourDArray;
++ (NSArray *)arrayAnalyzedWithFourDArray:(NSArray *)fourDArray;
 
 /**
  三维转四维
