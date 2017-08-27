@@ -117,27 +117,11 @@
 #define HXL_WEAKSELF   __weak typeof(self) weakSelf = self
 #define HXL_STRONGSELF __strong typeof(self) strongSelf = weakSelf
 
-/** 需要全文引用的头文件 */
-// Const 文件
-//#import "HXLConst.h"
-//#import "UIView+HXLGeometry.h"
+
 
 #define TitleFont FONT_13
 
-//// 三方类
 
-//#import "UIView+HXL.h"
-//#import "UIImageView+HXLSDWeb.h"
-//// 网络工具类
-//#import "HXLSessionManager.h"
-//// 分类
-//#import "UIBarButtonItem+HXLBarBtnItem.h"
-//#import "UIImage+HXLRenderOriginal.h"
-//#import "NSString+HXL.h"
-//
-//// 基类
-//#import "HXLHeadlineBtn.h"
-//#import "HXLEssenceBaseWithChildTVC.h"
 
 
 

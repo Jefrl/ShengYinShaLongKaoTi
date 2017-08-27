@@ -1,4 +1,4 @@
-# ShengYinShaLongKaoTi
+# ShengYinShaLong
 
 # 08 - 16
 # 学习篇 
@@ -6,13 +6,14 @@
 
 * [linksAndPicturePreview](#lapp) -- <span id="bk-lapp"> bk-lapp </span>
 * [00. 碎碎念](#00) -- <span id="bk00"> bk00 </span> 
-* [01. 自写暴力接口预览](#01) -- <span id="bk01"> bk01 </span> 
+* [01. 自写接口预览](#01) -- <span id="bk01"> bk01 </span> 
  
+### <span id="00"> 00. 碎碎念 </span> ==[bk00](#bk00)==
+* 之前在网上有一道公开的, 有关真实场景的门店层级筛选的编程题链接;
+* 来了兴趣, 便试着做了一下, 很有趣的题目, 感兴趣同仁, 可以练手试试;
+* [附上题目链接](http://www.jianshu.com/p/566c416f113b)
 
-### <span id="00"> 00. titleName </span> ==[bk00](#bk00)==
-* 有幸, 获得胜因沙龙的趣味试题, 谢过胜因, 好久没锻炼过了, 哈哈, 代码有点暴力, 小白一枚, 见谅 ! 附上[门级店下钻编程原作者链接](http://www.jianshu.com/p/566c416f113b)
-
-### <span id="01"> 01. 自写暴力接口预览 </span> ==[bk01](#bk01)==
+### <span id="01"> 01. 自写接口预览 </span> ==[bk01](#bk01)==
 
 ```
 

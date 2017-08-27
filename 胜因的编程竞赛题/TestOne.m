@@ -1,6 +1,6 @@
 //
 //  TestOne.m
-//  胜因的编程竞赛题 -- 此为题一, 题目在最下面; 
+//  门店级下钻测试 -- 此为题一, 题目在最下面; 
 //
 //  Created by Jefrl on 2017/8/15.
 //  Copyright © 2017年 Jefrl. All rights reserved.

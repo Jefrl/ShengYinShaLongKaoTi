@@ -26,7 +26,7 @@
 		A52B92DD1F43FEB100B36621 /* NSArray+HXL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+HXL.m"; sourceTree = "<group>"; };
 		A52B92FB1F44896D00B36621 /* NSDictionary+HXL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+HXL.h"; sourceTree = "<group>"; };
 		A52B92FC1F44896D00B36621 /* NSDictionary+HXL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+HXL.m"; sourceTree = "<group>"; };
-		A5DB95B71F430D4A002FC206 /* 胜因的编程竞赛题.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "胜因的编程竞赛题.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5DB95B71F430D4A002FC206 /* 门店级下钻测试.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "门店级下钻测试.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DB95BB1F430D4A002FC206 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5DB95BD1F430D4A002FC206 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A5DB95BE1F430D4A002FC206 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A539F4721F4551FD00106BED /* 门店级下钻测试 */ = {
+		A539F4721F4551FD00106BED /* 门店级下钻竞赛题 */ = {
 			isa = PBXGroup;
 			children = (
 				A52B92D91F43D33300B36621 /* TestTwoViewController.h */,
@@ -61,22 +61,22 @@
 				A52B92FB1F44896D00B36621 /* NSDictionary+HXL.h */,
 				A52B92FC1F44896D00B36621 /* NSDictionary+HXL.m */,
 			);
-			name = "门店级下钻测试";
+			name = "门店级下钻竞赛题";
 			sourceTree = "<group>";
 		};
-		A539F4731F45527F00106BED /* 初步测试题 */ = {
+		A539F4731F45527F00106BED /* 初级热身 */ = {
 			isa = PBXGroup;
 			children = (
 				A5DB95C01F430D4A002FC206 /* TestOne.h */,
 				A5DB95C11F430D4A002FC206 /* TestOne.m */,
 			);
-			name = "初步测试题";
+			name = "初级热身";
 			sourceTree = "<group>";
 		};
 		A5DB95AE1F430D4A002FC206 = {
 			isa = PBXGroup;
 			children = (
-				A5DB95B91F430D4A002FC206 /* 胜因的编程竞赛题 */,
+				A5DB95B91F430D4A002FC206 /* 门店级下钻测试 */,
 				A5DB95B81F430D4A002FC206 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,20 +84,21 @@
 		A5DB95B81F430D4A002FC206 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5DB95B71F430D4A002FC206 /* 胜因的编程竞赛题.app */,
+				A5DB95B71F430D4A002FC206 /* 门店级下钻测试.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A5DB95B91F430D4A002FC206 /* 胜因的编程竞赛题 */ = {
+		A5DB95B91F430D4A002FC206 /* 门店级下钻测试 */ = {
 			isa = PBXGroup;
 			children = (
 				A5DB95BD1F430D4A002FC206 /* AppDelegate.h */,
 				A5DB95BE1F430D4A002FC206 /* AppDelegate.m */,
-				A539F4731F45527F00106BED /* 初步测试题 */,
-				A539F4721F4551FD00106BED /* 门店级下钻测试 */,
+				A539F4731F45527F00106BED /* 初级热身 */,
+				A539F4721F4551FD00106BED /* 门店级下钻竞赛题 */,
 				A5DB95BA1F430D4A002FC206 /* Supporting Files */,
 			);
+			name = "门店级下钻测试";
 			path = "胜因的编程竞赛题";
 			sourceTree = "<group>";
 		};
@@ -118,9 +119,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A5DB95B61F430D4A002FC206 /* 胜因的编程竞赛题 */ = {
+		A5DB95B61F430D4A002FC206 /* 门店级下钻测试 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5DB95CE1F430D4A002FC206 /* Build configuration list for PBXNativeTarget "胜因的编程竞赛题" */;
+			buildConfigurationList = A5DB95CE1F430D4A002FC206 /* Build configuration list for PBXNativeTarget "门店级下钻测试" */;
 			buildPhases = (
 				A5DB95B31F430D4A002FC206 /* Sources */,
 				A5DB95B41F430D4A002FC206 /* Frameworks */,
@@ -130,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = "胜因的编程竞赛题";
+			name = "门店级下钻测试";
 			productName = "胜因的编程竞赛题";
-			productReference = A5DB95B71F430D4A002FC206 /* 胜因的编程竞赛题.app */;
+			productReference = A5DB95B71F430D4A002FC206 /* 门店级下钻测试.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +151,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A5DB95B21F430D4A002FC206 /* Build configuration list for PBXProject "胜因的编程竞赛题" */;
+			buildConfigurationList = A5DB95B21F430D4A002FC206 /* Build configuration list for PBXProject "门店级下钻测试" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -163,7 +164,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A5DB95B61F430D4A002FC206 /* 胜因的编程竞赛题 */,
+				A5DB95B61F430D4A002FC206 /* 门店级下钻测试 */,
 			);
 		};
 /* End PBXProject section */
@@ -337,7 +338,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A5DB95B21F430D4A002FC206 /* Build configuration list for PBXProject "胜因的编程竞赛题" */ = {
+		A5DB95B21F430D4A002FC206 /* Build configuration list for PBXProject "门店级下钻测试" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5DB95CC1F430D4A002FC206 /* Debug */,
@@ -346,7 +347,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5DB95CE1F430D4A002FC206 /* Build configuration list for PBXNativeTarget "胜因的编程竞赛题" */ = {
+		A5DB95CE1F430D4A002FC206 /* Build configuration list for PBXNativeTarget "门店级下钻测试" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5DB95CF1F430D4A002FC206 /* Debug */,
